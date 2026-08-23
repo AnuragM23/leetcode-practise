@@ -1,11 +1,11 @@
 class Solution {
     public int[] getConcatenation(int[] nums) {
-        ArrayList<Integer> arr = new ArrayList<>();
         int n = nums.length;
-        for(int i=0; i<2*n; i++) {
-            arr.add(nums[i%n]);
+        int[] arr = new int[2*n];
+        for(int i=0; i<n; i++) {
+            arr[i] = arr[i+n] = nums[i];
         }
 
-        return arr.stream().mapToInt(Integer::intValue).toArray();
+        return arr;
     }
 }
