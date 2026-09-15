@@ -1,16 +1,18 @@
 class StockSpanner {
-    private ArrayList<Integer> arr;
+    private ArrayList<int[]> arr;
 
     public StockSpanner() {
         arr = new ArrayList<>();    
     }
     
     public int next(int price) {
-        arr.add(price);
-        int count=0;
-        for(int i=arr.size()-1; i>=0 && arr.get(i)<=price; i--){
-            count++;
+        int count=1;
+        int index=arr.size()-1;
+        while(index>=0 && arr.get(index)[0]<=price){
+            count+=arr.get(index)[1];
+            index = index-arr.get(index)[1];
         }
+        arr.add(new int[] {price, count});
         return count;
     }
 }
