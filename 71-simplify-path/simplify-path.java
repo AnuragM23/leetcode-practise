@@ -8,15 +8,12 @@ class Solution {
         for(int i=0; i<path.length(); i++) {
             if(path.charAt(i) == '/'){
                 String record = word;
-                word = "";
-                if(record.length()==0 || record.equals(".")){
-                    continue;
-                } 
+                word = ""; 
                 if(record.equals("..")){
                     if(!stack.isEmpty()) stack.pop();
-                    continue;
-                }
-                stack.push(record);
+                } else if(!record.equals("") && !record.equals(".")){
+                    stack.push(record);
+                } 
             } else {
                 word = word+path.charAt(i);
             }
