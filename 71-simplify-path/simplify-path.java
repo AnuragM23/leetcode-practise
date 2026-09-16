@@ -7,17 +7,16 @@ class Solution {
 
         for(int i=0; i<path.length(); i++) {
             if(path.charAt(i) == '/'){
-                if(word.length()==0 || word.equals(".")){
-                    word="";
+                String record = word;
+                word = "";
+                if(record.length()==0 || record.equals(".")){
                     continue;
                 } 
-                if(word.equals("..")){
+                if(record.equals("..")){
                     if(!stack.isEmpty()) stack.pop();
-                    word="";
                     continue;
                 }
-                stack.push(word);
-                word="";
+                stack.push(record);
             } else {
                 word = word+path.charAt(i);
             }
