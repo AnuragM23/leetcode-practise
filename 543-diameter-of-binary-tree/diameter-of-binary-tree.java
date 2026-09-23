@@ -26,6 +26,7 @@ class Solution {
     }
 
     public int diameterOfBinaryTree(TreeNode root) {
+        System.gc();
         int max = maxHeight(root);
         return ans;
     }
