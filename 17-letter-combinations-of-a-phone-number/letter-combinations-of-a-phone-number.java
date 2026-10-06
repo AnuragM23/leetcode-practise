@@ -7,8 +7,7 @@ class Solution {
             return;
         }
 
-        String digit = ""+digits.charAt(index);
-        String charSet = map[Integer.parseInt(digit)];
+        String charSet = map[digits.charAt(index)-'0'];
 
         for(char c : charSet.toCharArray()) {
             helper(map, cur+c, index+1);
